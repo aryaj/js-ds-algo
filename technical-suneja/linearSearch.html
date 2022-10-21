@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const users = [
+        { username: "abc", email: "ajay@gmail.com" },
+        { username: "def", email: "def@gmail.com" },
+        { username: "ghi", email: "ghi@gmail.com" },
+      ];
+
+      function isUserExist(array, val) {
+        for (let item of array) {
+          console.log(item);
+          if (item["username"] === "abc") {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      console.log(isUserExist(users, "abc"));
+
+      // Time Complexity - Linear o(n)
+    </script>
+  </body>
+</html>

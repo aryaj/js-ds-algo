@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // A sorting algorithm where the largest values bubbles up at the top
+
+      function bubbleSort(array) {
+        for (let i = array.length; i > 0; i--) {
+          for (let j = 0; j < i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+              [array[j], array[j + 1]] = [array[j + 1], array[j]];
+            }
+          }
+        }
+        return array;
+      }
+      const res = bubbleSort([5, 3, 4, 1, 2, 8, 6, 7]);
+      console.log(res);
+    </script>
+  </body>
+</html>

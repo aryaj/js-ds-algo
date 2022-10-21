@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Write a function called sameFrequency. Given two positive integers, find out if the two numbers have the same frequency of digits.
+
+      function sameFrequency(num1, num2) {
+        let num1Array = num1.toString().split("");
+        num1Array = num1Array.map(Number);
+
+        let num2Array = num2.toString().split("");
+        num2Array = num2Array.map(Number);
+
+        if (num1Array.length !== num2Array.length) {
+          return false;
+        }
+
+        let obj1 = {};
+        let obj2 = {};
+
+        for (let num of num1Array) {
+          obj1[num] = (obj1[num] || 0) + 1;
+        }
+        for (let num of num2Array) {
+          obj2[num] = (obj2[num] || 0) + 1;
+        }
+
+        for (let num in obj1) {
+          if (obj1[num] !== obj2[num]) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      console.log(sameFrequency(182, 281)); // true
+      console.log(sameFrequency(34, 14)); // false
+      console.log(sameFrequency(3589578, 5879385)); // true
+      console.log(sameFrequency(22, 222)); // false
+    </script>
+  </body>
+</html>

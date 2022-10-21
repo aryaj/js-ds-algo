@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Checking sum 0
+      // First pair from array whose sum is 0
+      // [-5, -4, -3, -2, 0, 2, 4, 6, 8]
+      // [-4,4] -> Output
+
+      /*       const getSumPairZero = (arr) => {
+        let innerIndex = 1;
+        for (let number of arr) {
+          console.log("Outer loop");
+          for (j = innerIndex; j < arr.length; j++) {
+            console.log("Inner loop");
+            if (number + arr[j] === 0) {
+              return [number, arr[j]];
+            }
+          }
+          innerIndex += 1;
+        }
+      };
+
+      const result = getSumPairZero([-5, -4, -3, -2, 0, 2, 4, 6, 8]);
+      console.log(result); */
+
+      // o(n^2) quadratic time complexity
+
+      const getSumPairZero = (arr) => {
+        let left = 0;
+        let right = arr.length - 1;
+
+        while (left < right) {
+          let sum = arr[left] + arr[right];
+          if (sum === 0) {
+            return [arr[left], arr[right]];
+          } else if (sum > 0) {
+            right--;
+          } else if (sum < 0) {
+            left++;
+          }
+        }
+      };
+      const result = getSumPairZero([-5, -4, -3, -2, 0, 2, 4, 6, 8]);
+      console.log(result);
+
+      // o(n) Linear Time Complexity
+    </script>
+  </body>
+</html>

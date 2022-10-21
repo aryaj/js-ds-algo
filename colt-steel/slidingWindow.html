@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* function maxSum(arr, window) {
+        if (window > arr.length) {
+          return null;
+        }
+        let maxSum = -Infinity;
+        for (let i = 0; i < arr.length - window + 1; i++) {
+          let temp = 0;
+          for (let j = 0; j < window; j++) {
+            temp += arr[i + j];
+          }
+          console.log("temp", temp);
+          if (temp > maxSum) {
+            maxSum = temp;
+          }
+        }
+        return maxSum;
+      } */
+
+      function maxSum(arr, window) {
+        if (window > arr.length) {
+          return null;
+        }
+        let maxSum = 0;
+        let temp = 0;
+
+        for (let i = 0; i < window; i++) {
+          maxSum += arr[i];
+        }
+        temp = maxSum;
+
+        console.log("temp", temp);
+
+        for (let i = window; i < arr.length; i++) {
+          temp = maxSum - arr[i - window] + arr[i];
+          maxSum = Math.max(temp, maxSum);
+        }
+
+        console.log("maxSum", maxSum);
+
+        return maxSum;
+      }
+
+      console.log(maxSum([1, 2, 3, 4, 5, 6, 7, 8], [4]));
+      // console.log(maxSum([-1, -2, -3, -4, -5, -6, -7, -8], [4]));
+
+      10;
+
+      10 - 1 + 5;
+      4;
+    </script>
+  </body>
+</html>

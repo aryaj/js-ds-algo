@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Check is the second array has the squares of the first array numbers, and the frequencies should be same
+      /*      function checkSquare(arr1, arr2) {
+              let allSqauresFound = true;
+              for (i = 0; i < arr1.length; i++) {
+                for (j = 0; j <= arr2.length; j++) {
+                  if (arr2[j] == arr1[i] * arr1[i]) {
+                    allSqauresFound = true;
+                    arr2.splice(j, 1);
+                    break;
+                  } else {
+                    allSqauresFound = false;
+                  }
+                }
+                if (!allSqauresFound) {
+                  break;
+                }
+              }
+              return allSqauresFound;
+            } */
+
+      /*       function checkSquare(arr1, arr2) {
+              if (arr1.length !== arr2.length) {
+                return false;
+              }
+              for (let i = 0; i < arr1.length; i++) {
+                let correctIndex = arr2.indexOf(arr1[i] ** 2);
+                if (correctIndex == -1) {
+                  return false;
+                }
+                arr2.splice(correctIndex, 1);
+              }
+              return true;
+            } */
+
+      function checkSquare(arr1, arr2) {
+        let arr1Obj = {};
+        let arr2Obj = {};
+        for (num of arr1) {
+          arr1Obj[num] = (arr1Obj[num] || 0) + 1;
+        }
+        for (num of arr2) {
+          arr2Obj[num] = (arr2Obj[num] || 0) + 1;
+        }
+        console.log(arr1Obj);
+        console.log(arr2Obj);
+
+        for (key in arr1Obj) {
+          console.log(key);
+
+          if (!(key ** 2 in arr2Obj)) {
+            return false;
+          }
+
+          if (arr1Obj[key] !== arr2Obj[key ** 2]) {
+            return false;
+            break;
+          }
+        }
+
+        return true;
+      }
+
+      console.log(
+        checkSquare([4, 3, 2, 1, 4, 6, 5], [1, 4, 9, 16, 25, 16, 36])
+      );
+
+      //   {
+      //           4:2,
+      //           3:1,
+      //           2:1,
+      //           1:1,
+      //           5:1
+      //         }
+
+      //         {
+      //           1:1,
+      //           4:1,
+      //           9:1,
+      //           16:2,
+      //           25:1,
+
+      //         }
+    </script>
+  </body>
+</html>

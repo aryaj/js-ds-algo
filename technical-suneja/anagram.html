@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //  hello -. ellho
+
+      // Conditions
+      // 1. length check of both strings
+      // 2. String 'hello'
+      // {h:0,e:0,l:0,o:0}
+
+      function anagram(string1, string2) {
+        if (string1.length !== string2.length) {
+          return false;
+        }
+        let counterObj = {};
+        for (letters of string1) {
+          counterObj[letters] = (counterObj[letters] || 0) + 1;
+        }
+
+        for (let items of string2) {
+          if (!counterObj[items]) {
+            return false;
+          }
+          counterObj[items] -= 1;
+        }
+        return true;
+      }
+
+      console.log(anagram("hello", "ellho"));
+
+      // o(n) - Linear Time Complexity
+    </script>
+  </body>
+</html>

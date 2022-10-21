@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Sorting using Recursion
+      // [2,3,1,4]
+
+      function sort(arr) {
+        for (let i = 0; i < arr.length - 1; i++) {
+          console.log("running");
+          if (arr[i] > arr[i + 1]) {
+            let temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+            i = -1;
+          }
+        }
+        return arr;
+      }
+
+      console.log(sort([5, 3, 2, 6, 9, 1, 10, 100, 23]));
+      //console.log(sort([1, 6, 5, 9, 12, 8, 40, 30, 12, 25]));
+
+      // With Recursion
+
+      /* function isSorted(arr) {
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] > arr[i + 1]) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      let i = 0;
+      let j = 1;
+
+      function sort(arr) {
+        if (isSorted(arr)) {
+          return arr;
+        } else if (arr[i] > arr[j]) {
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+          i = 0;
+          j = 1;
+          return sort(arr);
+        } else if (arr[i] < arr[j]) {
+          i++;
+          j++;
+          return sort(arr);
+        }
+      }
+
+      console.log(sort([5, 3, 2, 6, 9, 1, 10, 100, 23])); */
+    </script>
+  </body>
+</html>
